@@ -185,6 +185,12 @@ function processData(data, queryResponse, config, viz) {
   }
   var mesID = meas[0]["name"];
   var mesData = data[0][mesID];
+
+  // if object of objects (pivot)
+  if(0 in mesData) {
+    mesData = mesData['0'];
+  }
+
   var mesLabel =
     meas[0]["label_short"] === undefined
       ? meas[0]["label"]
